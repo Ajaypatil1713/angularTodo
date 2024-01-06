@@ -1,0 +1,12 @@
+table thead th tr {
+    background-color: aquamarine ;
+}
+*{
+font-family: sans-serif;
+}
+.spacee{
+    margin-left: 10px;
+}
+table tr td{
+    /* border-radius: 20px; */
+}

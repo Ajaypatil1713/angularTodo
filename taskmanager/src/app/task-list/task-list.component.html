@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <form class="col-md-3 text-center pb-4">
+    <input type="text" class="form-control bgcolor" placeholder="Status" [(ngModel)]="statussearch" name="statussearch" />
+  </form>
+  <table class="table table-bordered table-striped table-responsive text-center">
+    <thead>
+      <tr class="table-warning">
+        <th >Task Name</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of visibleTasks | filter: statussearch">
+        <td>
+          <span *ngIf="!task.editing" class="m-2">{{ task.title }}</span>
+          <input *ngIf="task.editing" type="text" [(ngModel)]="task.title" class="form-control m-2" required />
+        </td>
+        <td>
+          <span *ngIf="!task.editing" class="m-2">{{ task.dueDate | date }}</span>
+          <input *ngIf="task.editing" type="text" [(ngModel)]="task.dueDate" class="form-control m-2" required />
+        </td>
+        <td>
+          <span *ngIf="!task.editing" class=" m-2">{{ task.status }}</span>
+          <select *ngIf="task.editing" [(ngModel)]="task.status" class="form-control m-2" required>
+            <option value="ToDo">To Do</option>
+            <option value="Pending">Pending</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </td>
+        <td>
+          <button class="btn btn-primary " (click)="toggleEdit(task)">
+            {{ task.editing ? 'Save' : 'Edit' }}    <!-- If task.editing is true, it displays "Save"; otherwise, it displays "Edit."  -->
+          </button>
+          <button class="btn btn-danger spacee" (click)="deleteTask(task)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-left">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" href="#" (click)="onPageChange(currentPage - 1)" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item" *ngFor="let page of getPaginationArray()">
+        <a class="page-link" href="#" (click)="onPageChange(page)">{{ page }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages()">
+        <a class="page-link" href="#" (click)="onPageChange(currentPage + 1)">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

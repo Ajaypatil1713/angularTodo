@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+     
+      <form (ngSubmit)="addTask()" #taskForm="ngForm" class="mt-3 p-3 shadow">
+       
+        <div class="form-group mt-2">
+          <input type="text"  name="title" [(ngModel)]="newTask.title" placeholder="Task Title" class="form-control" required />
+        </div>
+
+        <div class="form-group mt-2">
+          <input  type="date"  name="dueDate" [(ngModel)]="newTask.dueDate" class="form-control"  required />
+        </div>
+
+        <select name="status" id="status" [(ngModel)]="newTask.status" class="form-control mt-2"  required>
+          <option value="To Do" class="text-warning"><i>To Do</i></option>
+          <option value="Pending" class="text-danger"><i>Pending</i></option>
+          <option value="Completed" class="text-success"><i>Completed</i></option>
+        </select>        
+
+        <button type="submit" class="btn btn-primary mt-2">Add Task</button>
+        
+      </form>
+    </div>
+  </div>
+</div>

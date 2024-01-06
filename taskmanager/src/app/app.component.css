@@ -1,0 +1,9 @@
+body{
+    height: 750px;
+    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+button{
+    background-color: transparent;
+    border: transparent;
+}

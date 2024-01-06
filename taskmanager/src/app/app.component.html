@@ -1,0 +1,21 @@
+<body>
+  <h1 class="text-center text-light pt-5">Task Manager</h1>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="row shadow">
+          <div class="col-md-6 bg-warning text-center p-2">
+            <button class="from-control" [routerLink]="'/'">Task List</button>
+          </div>
+          <div class="col-md-6 bg-warning text-center p-2">
+            <button class="from-control" [routerLink]="'/add-task'">Add Task</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <router-outlet></router-outlet>
+</body>
